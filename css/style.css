@@ -1,39 +1,221 @@
+/* ------------------------------
+   GLOBAL STYLES
+------------------------------ */
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: #f7f7f7;
+    background: linear-gradient(to right, #1c1c1c, #2e2e2e);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f2f2f2;
+    margin: 0;
+    padding: 40px;
+    text-align: center;
 }
 
 h1 {
-    color: #333;
+    font-size: 3em;
+    color: #e50914;
+    text-shadow: 2px 2px 8px #000;
+    margin-bottom: 50px;
+    border-bottom: 3px solid #e50914;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-table {
+/* ------------------------------
+   MENU BUTTONS
+------------------------------ */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.btn {
+    background: #b30000;
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    transition: all 0.3s ease;
     width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    margin-top: 20px;
+    text-align: center;
+    border: 2px solid #880000;
 }
 
-th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
+.btn:hover {
+    background: #ff1a1a;
+    color: #fffbea;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 26, 26, 0.6);
+}
+
+/* ------------------------------
+   FORMULARIOS GENERALES
+------------------------------ */
+form {
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+form label {
+    display: block;
+    margin-bottom: 12px;
     text-align: left;
+    color: #f2f2f2;
+    font-size: 1em;
 }
 
-th {
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
     background-color: #444;
     color: white;
+    border: none;
+    margin-top: 4px;
+    margin-bottom: 15px;
 }
 
-.error {
-    color: red;
+select:focus {
+    outline: 2px solid #e50914;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 8px;
+}
+
+button[type="submit"] {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
     font-weight: bold;
 }
 
-a {
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #007BFF;
+button[type="submit"]:hover {
+    background-color: #ff1a1a;
+}
+
+/* ------------------------------
+   FORMULARIOS DE ELIMINACIÓN
+------------------------------ */
+form.delete-form {
+    background-color: #2a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.2);
+}
+
+form.delete-form label {
+    display: block;
+    margin-bottom: 15px;
+    color: #f8d7da;
+    font-weight: bold;
+}
+
+form.delete-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #3a3a3a;
+    color: white;
+    border: 1px solid #ff4a4a;
+    border-radius: 6px;
+}
+
+form.delete-form button {
+    background-color: #b30000;
+    color: white;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form.delete-form button:hover {
+    background-color: #ff1a1a;
+}
+
+/* ------------------------------
+   ALERTAS
+------------------------------ */
+.success, .error {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.success {
+    background-color: #1a572e;
+    color: #b5f7d0;
+    border: 1px solid #2ff37c;
+}
+
+.error {
+    background-color: #5e1d1d;
+    color: #ffc1c1;
+    border: 1px solid #ff4a4a;
+}
+
+/* ------------------------------
+   TABLAS DE LISTADO
+------------------------------ */
+.table-container {
+    max-width: 90%;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.movie-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: #1f1f1f;
+    color: #f2f2f2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.movie-table th {
+    background-color: #b30000;
+    color: #fffbea;
+    padding: 12px;
+    font-size: 1.1em;
+}
+
+.movie-table td {
+    padding: 12px;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.movie-table tr:hover {
+    background-color: #292929;
+    transition: background-color 0.3s;
 }

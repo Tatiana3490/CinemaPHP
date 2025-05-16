@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<h1>❌ Delete a Movie</h1>
+<h1>🗑️ Delete a Movie</h1>
 
 <?php if ($success): ?>
     <p class="success">✅ Movie deleted successfully!</p>
@@ -39,15 +39,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <p class="error"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
 
-<form method="post">
-    <label>Movie ID:
+<form method="post" class="delete-form">
+    <label>🎞️ Movie ID to delete:
         <input type="number" name="movie_id" required>
-    </label><br><br>
+    </label>
 
     <button type="submit">❌ Delete Movie</button>
 </form>
 
 <br>
-<a href="../index.php">🔙 Back to Menu</a>
+<a href="../index.php" class="btn">🔙 Back to Menu</a>
 </body>
 </html>

@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<h1>Add a New Screening</h1>
+<h1>🎟️ Add a New Screening</h1>
 
 <?php if ($success): ?>
     <p class="success">✅ Screening added successfully!</p>
@@ -41,27 +41,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php endif; ?>
 
 <form method="post">
-    <label>Date & Time (yyyy-MM-ddTHH:mm:ss):
+    <label>📅 Date & Time (yyyy-MM-ddTHH:mm:ss):
         <input type="text" name="screening_time" required placeholder="2025-06-01T20:30:00">
-    </label><br><br>
+    </label>
 
-    <label>Theater Room: <input type="text" name="theater_room" required></label><br><br>
-    <label>Ticket Price (€): <input type="number" name="ticket_price" step="0.01" min="0" required></label><br><br>
-    <label><input type="checkbox" name="subtitled"> Subtitled</label><br><br>
+    <label>🏛️ Theater Room:
+        <input type="text" name="theater_room" required>
+    </label>
 
-    <label>Movie:
+    <label>💰 Ticket Price (€):
+        <input type="number" name="ticket_price" step="0.01" min="0" required>
+    </label>
+
+    <label>
+        <input type="checkbox" name="subtitled"> Subtitled
+    </label>
+
+    <label>🎞️ Movie:
         <select name="movie_id" required>
             <option value="">-- Select a movie --</option>
             <?php foreach ($movies as $movie): ?>
                 <option value="<?= $movie['id'] ?>"><?= htmlspecialchars($movie['title']) ?></option>
             <?php endforeach; ?>
         </select>
-    </label><br><br>
+    </label>
 
     <button type="submit">➕ Add Screening</button>
 </form>
 
 <br>
-<a href="../index.php">🔙 Back to Menu</a>
+<a href="../index.php" class="btn">🔙 Back to Menu</a>
 </body>
 </html>
