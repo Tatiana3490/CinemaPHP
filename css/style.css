@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 20px;
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+.movie, .screening {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px auto;
+    max-width: 600px;
+    border-radius: 5px;
+}
