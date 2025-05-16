@@ -11,6 +11,12 @@ if (isset($_GET['page'])) {
             $controller = new ScreeningController();
             $controller->index();
             break;
+        case 'add-movie':
+            require_once 'controller/MovieFormController.php';
+            $controller = new MovieFormController();
+            $controller->index();
+            break;
+
         default:
             echo "<h2>Page not found</h2>";
     }
