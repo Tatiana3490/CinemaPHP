@@ -1,27 +1,32 @@
 <?php
+
 if (isset($_GET['page'])) {
     switch ($_GET['page']) {
+
         case 'movies':
-            require_once 'controller/MovieController.php';
-            $controller = new MovieController();
-            $controller->index();
+            // Aquí iría el listado de películas si lo tuvieras
+            require_once 'view/MovieRegisterView.php';
             break;
+
         case 'screenings':
             require_once 'controller/ScreeningController.php';
             $controller = new ScreeningController();
             $controller->index();
             break;
+
         case 'add-movie':
-            require_once 'controller/MovieFormController.php';
-            $controller = new MovieFormController();
-            $controller->index();
+            require_once 'view/MovieRegisterView.php';
+            break;
+
+        case 'add-screening':
+            require_once 'view/ScreeningRegisterView.php';
             break;
 
         default:
             echo "<h2>Page not found</h2>";
     }
 } else {
+    // Página por defecto
     header("Location: index.php?page=movies");
     exit();
 }
-?>
