@@ -26,15 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "movieId" => (int)$_POST["movie_id"]
         ];
 
-        $options = [
-            "http" => [
-                "header" => "Content-Type: application/json",
-                "method" => "PUT",
-                "content" => json_encode($screeningData)
-            ]
-        ];
-        $context = stream_context_create($options);
-        $response = @file_get_contents(API_BASE_URL . "/screenings/$id", false, $context);
+        $response = apiPut("/screenings/$id", $screeningData);
         $success = $response !== false;
 
         if (!$success) {
@@ -63,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <div class="table-container">
     <form method="post" class="movie-table">
         <label>🎟️ Enter Screening ID:
-            <input type="number" name="screening_id" required value="<?= $_POST["screening_id"] ?? '' ?>">
+            <input type="number" name="screening_id" required value="<?= isset($_POST["screening_id"]) ? $_POST["screening_id"] : '' ?>">
         </label>
         <br>
         <button type="submit" name="search" class="btn">🔍 Search Screening</button>

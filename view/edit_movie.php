@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             ]
         ];
         $context = stream_context_create($options);
-        $response = @file_get_contents(API_BASE_URL . "/movies/$movieId", false, $context);
+        $response = apiPut("/movies/$movieId", $movieData);
         $success = $response !== false;
 
         if (!$success) {
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <div class="table-container">
     <form method="post" class="movie-table">
         <label>🎞️ Enter Movie ID:
-            <input type="number" name="movie_id" required value="<?= $_POST["movie_id"] ?? '' ?>">
+            <input type="number" name="movie_id" required value="<?= isset($_POST["movie_id"]) ? $_POST["movie_id"] : '' ?>">
         </label>
         <br>
         <button type="submit" name="search" class="btn">🔍 Search Movie</button>

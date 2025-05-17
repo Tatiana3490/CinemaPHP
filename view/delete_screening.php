@@ -6,15 +6,7 @@ $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $screeningId = $_POST["screening_id"];
-    $endpoint = '/screenings/' . $screeningId;
-
-    $options = [
-        "http" => [
-            "method" => "DELETE"
-        ]
-    ];
-    $context = stream_context_create($options);
-    $response = @file_get_contents(API_BASE_URL . $endpoint, false, $context);
+    $response = apiDelete("/screenings/$screeningId");
 
     $success = $response !== false;
     if (!$success) {
@@ -36,15 +28,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <?php if ($success): ?>
     <p class="success">✅ Screening deleted successfully!</p>
 <?php elseif ($error): ?>
-    <p class="error"><?= htmlspecialchars($error) ?></p>
+    <p class="error"><?= $error ?></p>
 <?php endif; ?>
 
 <form method="post" class="delete-form">
-    <label>🎟️ Screening ID to delete:
+    <label>🎟️ Screening ID:
         <input type="number" name="screening_id" required>
-    </label>
+    </label><br><br>
 
-    <button type="submit">❌ Delete Screening</button>
+    <button type="submit" class="btn">❌ Delete Screening</button>
 </form>
 
 <br>
